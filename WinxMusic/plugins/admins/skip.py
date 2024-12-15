@@ -36,11 +36,6 @@ async def skip(_client: Client, message: Message, _, chat_id: int):
                             popped = None
                             try:
                                 popped = check.pop(0)
-                                if popped.get("mystic"):
-                                    try:
-                                        await popped.get("mystic").delete()
-                                    except Exception:
-                                        pass
                             except Exception:
                                 return await message.reply_text(_["admin_16"])
                             if popped:
@@ -72,11 +67,6 @@ async def skip(_client: Client, message: Message, _, chat_id: int):
             popped = check.pop(0)
             if popped:
                 await auto_clean(popped)
-                if popped.get("mystic"):
-                    try:
-                        await popped.get("mystic").delete()
-                    except Exception:
-                        pass
             if not check:
                 await message.reply_text(
                     _["admin_10"].format(message.from_user.first_name),
